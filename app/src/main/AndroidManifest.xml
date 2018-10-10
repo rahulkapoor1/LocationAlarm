@@ -20,7 +20,7 @@
         android:usesCleartextTraffic="true">
 
         <activity
-            android:name=".Splash.SplashActivity"
+            android:name=".splash.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

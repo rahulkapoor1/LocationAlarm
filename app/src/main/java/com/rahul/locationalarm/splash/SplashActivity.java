@@ -1,4 +1,4 @@
-package com.rahul.locationalarm.Splash;
+package com.rahul.locationalarm.splash;
 
 import android.os.Bundle;
 import android.os.Handler;

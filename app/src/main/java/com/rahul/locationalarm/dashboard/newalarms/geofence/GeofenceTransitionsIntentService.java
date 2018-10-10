@@ -20,7 +20,7 @@ import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofenceStatusCodes;
 import com.google.android.gms.location.GeofencingEvent;
 import com.rahul.locationalarm.R;
-import com.rahul.locationalarm.Splash.SplashActivity;
+import com.rahul.locationalarm.splash.SplashActivity;
 import com.rahul.locationalarm.dashboard.alarms.AlarmDAOImpl;
 import com.rahul.locationalarm.dashboard.alarms.AlarmModel;
 import com.rahul.locationalarm.helpers.AppSetupManager;
