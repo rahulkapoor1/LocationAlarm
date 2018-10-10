@@ -10,15 +10,16 @@ import com.rahul.locationalarm.location.LocationHelper;
 
 public class BootCompleteReceiver extends BroadcastReceiver {
 
-    private final static String TAG = BootCompleteReceiver.class.getSimpleName();
-
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        AppSetupManager.getInstance().setupApp(context);
-        // Re register geofence if needed
-        new GeofenceManager(context).registerGeofenceIfNeeded();
+        if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
 
-        LocationHelper.startBackgroundServices(context);
+            AppSetupManager.getInstance().setupApp(context);
+            // Re register geofence if needed
+            new GeofenceManager(context).registerGeofenceIfNeeded();
+
+            LocationHelper.setAlarmService(context);
+        }
     }
 }

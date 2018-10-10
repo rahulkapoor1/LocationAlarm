@@ -1,10 +1,6 @@
 package com.rahul.locationalarm.dashboard.alarms;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,14 +12,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.rahul.locationalarm.Constants;
 import com.rahul.locationalarm.R;
 import com.rahul.locationalarm.common.BaseActivity;
 import com.rahul.locationalarm.dashboard.alarms.update.AlarmUpdateCallback;
 import com.rahul.locationalarm.dashboard.newalarms.NewAlarmActivity;
 import com.rahul.locationalarm.dashboard.newalarms.geofence.GeofenceHelper;
 import com.rahul.locationalarm.injectors.DaggerAlarmsComponent;
-import com.rahul.locationalarm.location.AlarmBroadcastReceiver;
+import com.rahul.locationalarm.location.LocationHelper;
 import com.rahul.locationalarm.location.SavedLocationActivity;
 
 import java.util.ArrayList;
@@ -120,23 +115,7 @@ public class AlarmsActivity extends BaseActivity implements AlarmView, View.OnCl
      */
     private void startLocationTrackService() {
 
-        final AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        final Intent intent = new Intent(this, AlarmBroadcastReceiver.class);
-        final PendingIntent pendingIntent = PendingIntent.getBroadcast(this,
-                0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        if (alarmManager != null) {
-            // to handle Doze mode
-            // Link - https://hashedin.com/blog/save-your-android-service-from-doze-mode/
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, Constants.LOCATION_TRACK_DELAY, pendingIntent);
-            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                alarmManager.setExact(AlarmManager.RTC_WAKEUP, Constants.LOCATION_TRACK_DELAY, pendingIntent);
-            } else {
-                alarmManager.set(AlarmManager.RTC_WAKEUP, Constants.LOCATION_TRACK_DELAY, pendingIntent);
-            }
-        }
+        LocationHelper.setAlarmService(this);
     }
 
     /**
