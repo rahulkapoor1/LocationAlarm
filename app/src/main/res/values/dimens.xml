@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="headerTextSize">18sp</dimen>
+    <dimen name="normalTextSize">14sp</dimen>
+    <dimen name="xxSmallMargin">2dp</dimen>
+    <dimen name="xSmallMargin">5dp</dimen>
+    <dimen name="smallMargin">10dp</dimen>
+    <dimen name="normalMargin">15dp</dimen>
+    <dimen name="largeMargin">20dp</dimen>
+    <dimen name="xLargeMargin">30dp</dimen>
+    <dimen name="logoSize">50dp</dimen>
+    <dimen name="heightSeparator">1dp</dimen>
+</resources>

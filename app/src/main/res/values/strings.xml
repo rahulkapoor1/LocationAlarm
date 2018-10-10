@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">LocationAlarm</string>
+    <string name="user_name">UserName</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="ok">OK</string>
+    <string name="error_mandatory_fields">Please Enter All Mandatory Fields</string>
+    <string name="error_invalid_credentials">Invalid Username/Password</string>
+    <string name="add_alarm">Add Alarm</string>
+    <string name="alarm_name">Alarm Name</string>
+    <string name="location">Location</string>
+    <string name="ringtone">Ringtone</string>
+    <string name="vibration">Vibration</string>
+    <string name="done">Done</string>
+    <string name="error_alarm_name">Please enter Alarm name</string>
+    <string name="error_location">Please select location</string>
+    <string name="error_alarm_ringtone">Please select Alarm ringtone</string>
+    <string name="locations">My Locations</string>
+    <string name="error_unexpected">Unexpected Error</string>
+    <string name="request_permission_title">Permission</string>
+    <string name="request_permission_message">Needs Data Read Permission for showing Available Ringtones.</string>
+    <string name="request_fine_location_permission_message">App needs your exact location to trigger Geofence.</string>
+    <string name="cancel">Cancel</string>
+    <string name="allow_read_data">Go To Settings and allow File Read Permission.</string>
+    <string name="allow_fine_location">Go To Settings and allow Access fine Location Permission.</string>
+    <string name="geofence_enter_tile">Entering</string>
+    <string name="geofence_exit_tile">Exiting</string>
+    <string name="text_tracked_location">Tracked Location</string>
+    <string name="error_fetching_locations">Error in fetching locations.</string>
+</resources>

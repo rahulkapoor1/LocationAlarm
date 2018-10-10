@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/normalMargin">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/xSmallMargin">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/smallMargin"
+                android:src="@android:drawable/ic_menu_delete" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/xLargeMargin">
+
+                <TextView
+                    android:id="@+id/tv_alarm_name"
+                    style="@style/BoldTextView"
+                    android:layout_alignParentLeft="true"
+                    android:layout_toLeftOf="@+id/switch_active" />
+
+                <TextView
+                    android:id="@+id/tv_alarm_ringtone"
+                    style="@style/NormalTextView"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/tv_alarm_name"
+                    android:layout_toLeftOf="@+id/switch_active" />
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@id/switch_active"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    app:thumbTint="@color/colorPrimary" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</android.support.v7.widget.CardView>
