@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
 
+import com.rahul.locationalarm.BuildConfig;
 import com.rahul.locationalarm.Constants;
 
 public class LocationHelper {
@@ -40,8 +41,11 @@ public class LocationHelper {
 
         if (alarmManager != null) {
 
+            // in case of debug mode, location tracking should work in every 1 minute
+            final long normalDelay = BuildConfig.DEBUG ? Constants.FAST_LOCATION_TRACK_DELAY : Constants.LOCATION_TRACK_DELAY;
+
             final long delay = System.currentTimeMillis() +
-                    (isDeviceIdle ? Constants.LOCATION_TRACK_LONG_DELAY : Constants.LOCATION_TRACK_DELAY);
+                    (isDeviceIdle ? Constants.LOCATION_TRACK_LONG_DELAY : normalDelay);
 
             // to handle Doze mode
             // Link - https://hashedin.com/blog/save-your-android-service-from-doze-mode/
