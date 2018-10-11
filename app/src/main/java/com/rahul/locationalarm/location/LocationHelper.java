@@ -40,7 +40,8 @@ public class LocationHelper {
 
         if (alarmManager != null) {
 
-            final int delay = isDeviceIdle ? Constants.LOCATION_TRACK_LONG_DELAY : Constants.LOCATION_TRACK_DELAY;
+            final long delay = System.currentTimeMillis() +
+                    (isDeviceIdle ? Constants.LOCATION_TRACK_LONG_DELAY : Constants.LOCATION_TRACK_DELAY);
 
             // to handle Doze mode
             // Link - https://hashedin.com/blog/save-your-android-service-from-doze-mode/
