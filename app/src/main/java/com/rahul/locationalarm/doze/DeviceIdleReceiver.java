@@ -1,6 +1,5 @@
 package com.rahul.locationalarm.doze;
 
-import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -17,18 +16,27 @@ public class DeviceIdleReceiver extends BroadcastReceiver {
 
     private static final String LOGGER_TAG = DeviceIdleReceiver.class.getSimpleName();
 
-    @TargetApi(Build.VERSION_CODES.M)
+    private static final String ACTION_IDLE_MODE_CHANGED = "android.os.action.DEVICE_IDLE_MODE_CHANGED";
+
     @Override
     public void onReceive(Context context, Intent intent) {
 
         final PowerManager powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
 
-        if (powerManager != null) {
-            final boolean isDozeMode = powerManager.isDeviceIdleMode();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
-            Log.d(LOGGER_TAG, "Is Doze Mode" + isDozeMode);
+            if (intent.getAction() != null && intent.getAction().equals(ACTION_IDLE_MODE_CHANGED)) {
 
-            LocationHelper.setAlarmService(context);
+                if (powerManager != null) {
+                    final boolean isDozeMode = powerManager.isDeviceIdleMode();
+
+                    Log.d(LOGGER_TAG, "Is Doze Mode" + isDozeMode);
+
+                    LocationHelper.setAlarmService(context, isDozeMode);
+                }
+
+            }
         }
+
     }
 }

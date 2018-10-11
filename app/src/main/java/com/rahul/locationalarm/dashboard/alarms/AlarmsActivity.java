@@ -115,7 +115,7 @@ public class AlarmsActivity extends BaseActivity implements AlarmView, View.OnCl
      */
     private void startLocationTrackService() {
 
-        LocationHelper.setAlarmService(this);
+        LocationHelper.setAlarmService(this, false);
     }
 
     /**

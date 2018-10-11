@@ -19,7 +19,7 @@ public class BootCompleteReceiver extends BroadcastReceiver {
             // Re register geofence if needed
             new GeofenceManager(context).registerGeofenceIfNeeded();
 
-            LocationHelper.setAlarmService(context);
+            LocationHelper.setAlarmService(context, false);
         }
     }
 }
