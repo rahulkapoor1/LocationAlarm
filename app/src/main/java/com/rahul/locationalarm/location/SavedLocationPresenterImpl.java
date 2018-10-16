@@ -70,7 +70,9 @@ public class SavedLocationPresenterImpl implements SavedLocationPresenter, UserD
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d(LOGGER_TAG, "Unable to receive locations");
-                mView.onReceivedErrorInGettingLocations(R.string.error_fetching_locations);
+                if (mView != null) {
+                    mView.onReceivedErrorInGettingLocations(R.string.error_fetching_locations);
+                }
             }
         });
 
@@ -80,6 +82,8 @@ public class SavedLocationPresenterImpl implements SavedLocationPresenter, UserD
     public void onUserDetailUnavailable() {
         // unrealistic case
         Log.w(LOGGER_TAG, "User detail is unavailable");
-        mView.onReceivedErrorInGettingLocations(R.string.error_fetching_locations);
+        if (mView != null) {
+            mView.onReceivedErrorInGettingLocations(R.string.error_fetching_locations);
+        }
     }
 }

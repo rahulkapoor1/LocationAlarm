@@ -31,6 +31,8 @@ public class GeofenceHelper implements GoogleApiClient.ConnectionCallbacks,
 
     private static final String TAG = GeofenceHelper.class.getSimpleName();
 
+    private static final int NO_INITIAL_TRIGGER = 0;
+
     private PendingIntent mPendingIntent;
 
     private GoogleApiClient mGoogleApiClient;
@@ -119,7 +121,7 @@ public class GeofenceHelper implements GoogleApiClient.ConnectionCallbacks,
 
         final GeofencingRequest request = new GeofencingRequest.Builder()
                 .addGeofence(geofence)
-                .setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER | GeofencingRequest.INITIAL_TRIGGER_EXIT)
+                .setInitialTrigger(NO_INITIAL_TRIGGER)
                 .build();
 
 
